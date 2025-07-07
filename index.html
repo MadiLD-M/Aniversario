@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Audiolibro Personalizado</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-container">
+    <div class="player-container">
+      <h1 id="titulo-capitulo">Capítulo 1</h1>
+      <audio id="audio" controls>
+        <source src="audio/capitulo1.mp3" type="audio/mpeg" />
+        Tu navegador no soporta audio HTML5.
+      </audio>
+
+      <div class="progress-container">
+        <input type="range" id="progress" min="0" max="100" value="0" step="0.1">
+        <span id="current-time">00:00</span> / <span id="duration">00:00</span>
+      </div>
+
+      <div class="lyrics" id="lyrics"></div>
+
+      <div class="marcadores">
+        <h2>Marcadores</h2>
+        <button id="add-marcador">Agregar marcador</button>
+        <ul id="lista-marcadores"></ul>
+      </div>
+    </div>
+
+    <aside class="sidebar">
+      <h2>Capítulos</h2>
+      <ul id="capitulo-lista">
+        <li data-capitulo="1">Capítulo 1</li>
+        <li data-capitulo="2">Capítulo 2</li>
+      </ul>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

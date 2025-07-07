@@ -1,0 +1,147 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Reproductor */
+.player-container {
+  flex: 1 1 600px;
+  max-width: 700px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 300px;
+}
+
+/* Barra lateral de capítulos */
+.sidebar {
+  flex: 0 1 200px;
+  background: #ffffff;
+  border-left: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  max-height: fit-content;
+  min-width: 200px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
+}
+
+.sidebar h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+  background-color: #f0f0f0;
+}
+
+/* Controles */
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+#progress {
+  flex-grow: 1;
+}
+
+/* Letras */
+.lyrics {
+  background: #eee;
+  padding: 10px;
+  height: 200px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-family: monospace;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  border-radius: 5px;
+}
+
+.lyrics .active {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+/* Marcadores */
+.marcadores ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.marcadores li {
+  padding: 5px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.marcadores li:hover {
+  background: #f9f9f9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .sidebar {
+    order: -1;
+    width: 100%;
+    border-left: none;
+    border-top: 2px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .player-container {
+    width: 100%;
+  }
+
+  .progress-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #progress {
+    width: 100%;
+  }
+
+  .lyrics {
+    height: 150px;
+  }
+}
