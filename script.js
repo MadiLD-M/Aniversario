@@ -33,11 +33,11 @@ function seleccionarCapitulo(num) {
   tituloCapitulo.textContent = `Capítulo ${num}`;
 
   // Cambiar archivo de audio
-  audio.src = `Aniversario/audio/capitulo${num}.mp3`;
+  audio.src = `audio/capitulo${num}.mp3`;
   audio.load();
 
   // Cargar letra
-  cargarLetra(`Aniversario/letras/capitulo${num}.lrc`);
+  cargarLetra(`letras/capitulo${num}.lrc`);
 
   // Restaurar progreso
   const lastTime = localStorage.getItem(`cap${num}_ultimaPosicion`);
