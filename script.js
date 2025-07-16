@@ -33,11 +33,11 @@ function seleccionarCapitulo(num) {
   tituloCapitulo.textContent = `Capítulo ${num}`;
 
   // Cambiar archivo de audio
-  audio.src = `audio/capitulo${num}.mp3`;
+  audio.src = `assets/audio/capitulo${num}.mp3`;
   audio.load();
 
   // Cargar letra
-  cargarLetra(`letras/capitulo${num}.lrc`);
+  cargarLetra(`assets/letras/capitulo${num}.lrc`);
 
   // Restaurar progreso
   const lastTime = localStorage.getItem(`cap${num}_ultimaPosicion`);
@@ -84,6 +84,7 @@ function formatearTiempo(t) {
 async function cargarLetra(ruta) {
   try {
     const res = await fetch(ruta);
+    if (!res.ok) throw new Error('Letra no encontrada');
     const texto = await res.text();
     lyrics = texto.split('\n')
       .filter(linea => /^\[\d+:\d+\.\d+\]/.test(linea))
@@ -100,6 +101,7 @@ async function cargarLetra(ruta) {
       lyricsContainer.appendChild(div);
     });
   } catch (err) {
+    console.error('Error cargando letra:', err);
     lyrics = [];
     lyricsContainer.innerHTML = "<i>No se encontró letra para este capítulo.</i>";
   }
